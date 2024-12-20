@@ -98,7 +98,7 @@ This project is a learning exercise inspired by [Martin Sohn's PowerShell Revers
 2. **Store them in User's Temp Directory:**
 
     ```bash
-    %USERPROFILE%\AppData\Local\Temp
+    %USERPROFILE%\\AppData\\Local\\Temp
     ```
 
 3. **Store runner.cmd file in:**
