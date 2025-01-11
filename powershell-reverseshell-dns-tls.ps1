@@ -3,7 +3,7 @@ function DNSLookup($DNSRecord){
     return ([System.Text.Encoding]::UTF8.GetString($response)|ConvertFrom-Json).Answer.data.trim('"')
 }
 
-$remoteIP = "192.168.122.192"
+$remoteIP = "x.x.x.x"
 $remotePort = "13337"
 
 do {
